@@ -338,10 +338,10 @@ $diagramDefs = @(
         file = "diagrams/Activity_Diagram.drawio.svg"
         level = "uml"
         badge = "Activity Diagram"
-        title = "UML Activity Diagram: Field Operations & Log Validation Workflow"
+        title = "UML Activity Diagram: Process 3.0 Field Operations & Log Validation Workflow"
         parent = "lvl1_3_0"
-        children = @{ "Submit Daily"="lvl2_3_1"; "Post Automated"="lvl2_3_2"; "Review Activity"="lvl2_3_4" }
-        description = "Swimlane activity workflow modeling the operational log lifecycle: Worker daily submission, automated material depletion, Manager validation (approval/rejection), and operations log storage."
+        children = @{ "3.1 Record Daily"="lvl2_3_1"; "3.2 Execute Automated"="lvl2_3_2"; "3.4 Validate Operational"="lvl2_3_4"; "3.4.1 Review Worker"="lvl2_3_4"; "3.4.2 Authorize Approved"="lvl2_3_4"; "3.4.3 Review Correction"="lvl2_3_4" }
+        description = "Swimlane activity workflow modeling the operational log lifecycle: Worker daily submission (3.1), automated material depletion (3.2), Manager validation (3.4), and operations log storage."
     },
     @{ 
         id = "use_case_diagram"
@@ -350,8 +350,8 @@ $diagramDefs = @(
         badge = "Use Case Diagram"
         title = "UML Use Case Diagram: Actors & System Boundaries"
         parent = "context_dfd"
-        children = @{ "1.0"="lvl1_1_0"; "2.0"="lvl1_2_0"; "3.0"="lvl1_3_0"; "4.0"="lvl1_4_0"; "5.0"="lvl1_5_0"; "6.0"="lvl1_6_0" }
-        description = "Use case diagram depicting primary actors (Farm Worker, Farm Manager, Superadmin, Supplier, Customer) interacting with core functional subsystems across system boundaries."
+        children = @{ "2.0 Administer Inventory"="lvl1_2_0"; "2.2 Reconcile Stock"="lvl2_2_2"; "2.3 Authorize & Audit"="lvl2_2_3"; "3.1 Record Daily"="lvl2_3_1"; "3.4 Validate Operational"="lvl2_3_4"; "4.0 Track Finances"="lvl1_4_0"; "5.0 Deliver Reports"="lvl1_5_0"; "6.0 Manage Suppliers"="lvl1_6_0" }
+        description = "Use case diagram depicting primary actors (Farm Worker, Farm Manager, Farm Owner, Supplier, Customer) interacting with core functional subsystems across system boundaries."
     }
 )
 
@@ -425,6 +425,7 @@ for ($i = 0; $i -lt $diagramDefs.Count; $i++) {
 [void]$sb.AppendLine("")
 [void]$sb.AppendLine("// Global exports")
 [void]$sb.AppendLine("window.DIAGRAMS_DATA = DIAGRAMS_DATA;")
+[void]$sb.AppendLine("window.diagramsData = DIAGRAMS_DATA;")
 [void]$sb.AppendLine("window.getDiagramById = getDiagramById;")
 [void]$sb.AppendLine("window.getDiagramsByLevel = getDiagramsByLevel;")
 
