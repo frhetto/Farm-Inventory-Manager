@@ -1,0 +1,212 @@
+/* Farm Inventory & Operations Manager - Master Stylesheet */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  color-scheme: light;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', Consolas, "Courier New", monospace;
+
+  /* Light Theme */
+  --bg-primary: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-subtle: #f1f5f9;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --border-color: #e2e8f0;
+  --border-subtle: #f1f5f9;
+
+  --accent-emerald: #059669;
+  --accent-emerald-dark: #047857;
+  --accent-emerald-light: #d1fae5;
+  --accent-blue: #0284c7;
+
+  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --card-hover-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+}
+
+.dark {
+  color-scheme: dark;
+  /* Dark Theme */
+  --bg-primary: #090d16;
+  --bg-surface: #111827;
+  --bg-subtle: #1f2937;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --border-color: #334155;
+  --border-subtle: #1e293b;
+
+  --accent-emerald: #10b981;
+  --accent-emerald-dark: #059669;
+  --accent-emerald-light: #064e3b;
+  --accent-blue: #38bdf8;
+
+  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.2);
+  --card-hover-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.4);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  line-height: 1.6;
+  min-height: 100vh;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color);
+}
+.dark .glass-panel {
+  background: rgba(17, 24, 39, 0.88);
+  border-color: var(--border-color);
+}
+
+/* Hero Ambient Background */
+.hero-glow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1300px;
+  height: 520px;
+  background: radial-gradient(circle at 50% 15%, rgba(5, 150, 105, 0.12) 0%, rgba(2, 132, 199, 0.06) 45%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Full-width Diagram Canvas Viewport */
+.diagram-canvas-viewport {
+  cursor: grab;
+  user-select: none;
+  background-image: radial-gradient(var(--border-color) 1px, transparent 1px);
+  background-size: 20px 20px;
+  min-height: 600px;
+  height: 720px;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+.diagram-canvas-viewport:active {
+  cursor: grabbing;
+}
+
+/* Draw.io & Mermaid SVG Canvas Styling */
+#diagramTransformWrapper svg {
+  max-width: none !important;
+  height: auto;
+  overflow: visible;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.05));
+}
+
+.dark #diagramTransformWrapper svg {
+  color-scheme: dark !important;
+}
+
+/* Fallback: ensure black stroke lines in diagrams become high-contrast light in dark mode */
+.dark #diagramTransformWrapper svg path[stroke="#000000"],
+.dark #diagramTransformWrapper svg [stroke="#000000"] {
+  stroke: #cbd5e1 !important;
+}
+
+.dark #diagramTransformWrapper svg text[fill="#000000"],
+.dark #diagramTransformWrapper svg text[fill="#28253D"] {
+  fill: #f1f5f9 !important;
+}
+
+/* Requirement Card Hover */
+.req-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.req-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--card-hover-shadow);
+  border-color: var(--accent-emerald);
+}
+
+/* Fullscreen Mode for Diagram Studio */
+#diagramStudioCard.fixed {
+  background-color: var(--bg-surface) !important;
+  box-shadow: none !important;
+}
+#diagramStudioCard.fixed .diagram-canvas-viewport {
+  height: calc(100vh - 120px) !important;
+}
+
+/* Soft Pulse Animation */
+@keyframes softPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.02); }
+}
+.badge-pulse {
+  animation: softPulse 3s infinite ease-in-out;
+}
+
+/* Interactive Diagram Clickable Nodes */
+.interactive-diagram-node {
+  cursor: pointer !important;
+  transition: filter 0.18s ease-in-out, transform 0.18s ease-in-out;
+}
+
+.interactive-diagram-node:hover {
+  filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.95)) !important;
+}
+
+.interactive-diagram-node:hover ellipse,
+.interactive-diagram-node:hover rect {
+  stroke: #10b981 !important;
+  stroke-width: 3.5px !important;
+}
+
+.interactive-diagram-node:active {
+  filter: drop-shadow(0 0 16px rgba(16, 185, 129, 1)) !important;
+}
+
+/* Level Filter Tabs */
+.level-filter-tab {
+  transition: all 0.15s ease-in-out;
+}
+
+.level-filter-tab.active {
+  background-color: #047857 !important;
+  color: #ffffff !important;
+  border-color: #047857 !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.dark .level-filter-tab.active {
+  background-color: #059669 !important;
+  border-color: #059669 !important;
+}
+

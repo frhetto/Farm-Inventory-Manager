@@ -1,0 +1,138 @@
+{
+  "inventory": [
+    {
+      "id": "INV-FERT-001",
+      "name": "Compound NPK 15-15-15 Granular",
+      "category": "Fertilizers",
+      "unit": "kg",
+      "unitCost": 1.45,
+      "currentStock": 420.0,
+      "safetyBuffer": 150.0,
+      "dailyConsumptionRate": 25.0,
+      "leadTimeDays": 5,
+      "maxCapacity": 2000.0,
+      "batchNumber": "LOT-2026-NPK-88",
+      "location": "Warehouse A - Bay 3",
+      "supplier": {
+        "id": "SUP-AGRO-01",
+        "name": "AgroChem Nutrients Ltd",
+        "contact": "orders@agrochem-nutrients.com"
+      }
+    },
+    {
+      "id": "INV-FEED-002",
+      "name": "Broiler High-Energy Starter Mash",
+      "category": "Feed",
+      "unit": "kg",
+      "unitCost": 0.85,
+      "currentStock": 180.0,
+      "safetyBuffer": 100.0,
+      "dailyConsumptionRate": 30.0,
+      "leadTimeDays": 4,
+      "maxCapacity": 1500.0,
+      "batchNumber": "LOT-2026-MASH-12",
+      "location": "Feed Silo 2",
+      "supplier": {
+        "id": "SUP-FEED-02",
+        "name": "FeedMaster Grain Milling Co",
+        "contact": "dispatch@feedmaster.ag"
+      }
+    },
+    {
+      "id": "INV-SEED-003",
+      "name": "Hybrid Maize Seed Gen-4",
+      "category": "Seeds",
+      "unit": "kg",
+      "unitCost": 6.20,
+      "currentStock": 75.0,
+      "safetyBuffer": 40.0,
+      "dailyConsumptionRate": 8.0,
+      "leadTimeDays": 7,
+      "maxCapacity": 500.0,
+      "batchNumber": "LOT-2026-SEED-09",
+      "location": "Cold Seed Vault B",
+      "supplier": {
+        "id": "SUP-SEED-03",
+        "name": "Pioneer Seed Genetics",
+        "contact": "sales@pioneergenetics.com"
+      }
+    },
+    {
+      "id": "INV-VET-004",
+      "name": "Ivermectin 1% Injectable Solution",
+      "category": "Veterinary",
+      "unit": "mL",
+      "unitCost": 0.35,
+      "currentStock": 220.0,
+      "safetyBuffer": 80.0,
+      "dailyConsumptionRate": 15.0,
+      "leadTimeDays": 6,
+      "maxCapacity": 1000.0,
+      "batchNumber": "LOT-2026-VET-41",
+      "location": "Vet Storage Cabinet C",
+      "supplier": {
+        "id": "SUP-VET-04",
+        "name": "Apex Animal Health Supplies",
+        "contact": "care@apexanimalhealth.com"
+      }
+    },
+    {
+      "id": "INV-FERT-005",
+      "name": "Urea Nitrogen Fertilizer 46-0-0",
+      "category": "Fertilizers",
+      "unit": "kg",
+      "unitCost": 1.10,
+      "currentStock": 90.0,
+      "safetyBuffer": 120.0,
+      "dailyConsumptionRate": 20.0,
+      "leadTimeDays": 4,
+      "maxCapacity": 1200.0,
+      "batchNumber": "LOT-2026-UREA-03",
+      "location": "Warehouse A - Bay 1",
+      "supplier": {
+        "id": "SUP-AGRO-01",
+        "name": "AgroChem Nutrients Ltd",
+        "contact": "orders@agrochem-nutrients.com"
+      }
+    }
+  ],
+  "activityRecipes": {
+    "crop_fertilization": {
+      "activityName": "Plot Nitrogen/NPK Fertilization",
+      "targetType": "area_hectares",
+      "consumableId": "INV-FERT-001",
+      "ratePerUnit": 15.0,
+      "rateUnit": "kg / hectare"
+    },
+    "crop_urea_topdress": {
+      "activityName": "Topdress Nitrogen Application",
+      "targetType": "area_hectares",
+      "consumableId": "INV-FERT-005",
+      "ratePerUnit": 10.0,
+      "rateUnit": "kg / hectare"
+    },
+    "poultry_flock_feed": {
+      "activityName": "Daily Broiler Flock Nutrition",
+      "targetType": "head_count",
+      "consumableId": "INV-FEED-002",
+      "ratePerUnit": 0.12,
+      "rateUnit": "kg / bird"
+    },
+    "livestock_deworming": {
+      "activityName": "Bovine/Ovine Parasite Treatment",
+      "targetType": "head_count",
+      "consumableId": "INV-VET-004",
+      "ratePerUnit": 2.0,
+      "rateUnit": "mL / animal"
+    },
+    "maize_planting": {
+      "activityName": "Field Maize Sowing",
+      "targetType": "area_hectares",
+      "consumableId": "INV-SEED-003",
+      "ratePerUnit": 4.5,
+      "rateUnit": "kg / hectare"
+    }
+  },
+  "depletionLogs": [],
+  "requisitionOrders": []
+}
