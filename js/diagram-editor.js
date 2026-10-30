@@ -506,10 +506,19 @@ class DiagramStudio {
       return;
     }
 
-    const svgData = new XMLSerializer().serializeToString(svgEl);
-    const canvas = document.createElement("canvas");
-    const ctx = canvas.getContext("2d");
-    const img = new Image();
+    const btn = document.getElementById("btnExportPng");
+    const originalContent = btn ? btn.innerHTML : "";
+    if (btn) {
+      btn.innerHTML = `<svg class="w-3.5 h-3.5 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path></svg><span>Exporting...</span>`;
+      btn.disabled = true;
+    }
+
+    const restoreBtn = () => {
+      if (btn) {
+        btn.innerHTML = originalContent;
+        btn.disabled = false;
+      }
+    };
 
     let sWidth = 1200;
     let sHeight = 800;
@@ -523,29 +532,66 @@ class DiagramStudio {
     }
 
     const scale = Math.min(2.0, 4000 / Math.max(sWidth, sHeight));
-    canvas.width = sWidth * scale;
-    canvas.height = sHeight * scale;
+    const canvas = document.createElement("canvas");
+    canvas.width = Math.round(sWidth * scale);
+    canvas.height = Math.round(sHeight * scale);
+    const ctx = canvas.getContext("2d");
 
-    const svgBlob = new Blob([svgData], { type: "image/svg+xml;charset=utf-8" });
-    const url = URL.createObjectURL(svgBlob);
+    let svgData = new XMLSerializer().serializeToString(svgEl);
+    // Strip large draw.io content metadata attribute to save memory and ensure clean SVG parsing
+    svgData = svgData.replace(/\scontent="[^"]*"/, "");
+    // Remove external web font imports inside <style> to prevent cross-origin network blocking
+    svgData = svgData.replace(/@import[^;]*;/, "");
+
+    // Using Data URL rather than Blob URL avoids canvas tainting in file:/// origins
+    const dataUrl = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svgData);
+    const img = new Image();
 
     img.onload = () => {
-      const isDark = document.documentElement.classList.contains("dark");
-      ctx.fillStyle = isDark ? "#090d16" : "#ffffff";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-      URL.revokeObjectURL(url);
+      try {
+        const isDark = document.documentElement.classList.contains("dark");
+        ctx.fillStyle = isDark ? "#090d16" : "#ffffff";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 
-      const pngUrl = canvas.toDataURL("image/png");
-      const link = document.createElement("a");
-      link.href = pngUrl;
-      link.download = `${this.currentDiagramId}.png`;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+        const downloadImage = (url) => {
+          const link = document.createElement("a");
+          link.href = url;
+          link.download = `${this.currentDiagramId}.png`;
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        };
+
+        if (canvas.toBlob) {
+          canvas.toBlob((blob) => {
+            if (blob) {
+              const blobUrl = URL.createObjectURL(blob);
+              downloadImage(blobUrl);
+              setTimeout(() => URL.revokeObjectURL(blobUrl), 2000);
+            } else {
+              downloadImage(canvas.toDataURL("image/png"));
+            }
+            restoreBtn();
+          }, "image/png");
+        } else {
+          downloadImage(canvas.toDataURL("image/png"));
+          restoreBtn();
+        }
+      } catch (err) {
+        console.error("Export PNG failed during canvas rasterization:", err);
+        alert("Failed to export diagram as PNG: " + err.message);
+        restoreBtn();
+      }
     };
 
-    img.src = url;
+    img.onerror = (err) => {
+      console.error("Failed to load SVG into raster image:", err);
+      alert("Unable to render diagram to image for export.");
+      restoreBtn();
+    };
+
+    img.src = dataUrl;
   }
 }
 
