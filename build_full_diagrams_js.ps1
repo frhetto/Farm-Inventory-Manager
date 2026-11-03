@@ -352,6 +352,36 @@ $diagramDefs = @(
         parent = "context_dfd"
         children = @{ "2.0 Administer Inventory"="lvl1_2_0"; "2.2 Reconcile Stock"="lvl2_2_2"; "2.3 Authorize & Audit"="lvl2_2_3"; "3.1 Record Daily"="lvl2_3_1"; "3.4 Validate Operational"="lvl2_3_4"; "4.0 Track Finances"="lvl1_4_0"; "5.0 Deliver Reports"="lvl1_5_0"; "6.0 Manage Suppliers"="lvl1_6_0" }
         description = "Use case diagram depicting primary actors (Farm Worker, Farm Manager, Farm Owner, Supplier, Customer) interacting with core functional subsystems across system boundaries."
+    },
+    @{ 
+        id = "class_diagram"
+        file = "diagrams/Class_Diagram.drawio.svg"
+        level = "uml"
+        badge = "Class Diagram"
+        title = "UML Class Diagram: Static Object Model & Domain Architecture"
+        parent = "dfd_lvl0"
+        children = @{ "User"="lvl1_1_0"; "InventoryItem"="lvl1_2_0"; "FieldActivityLog"="lvl1_3_0"; "FinancialJournalEntry"="lvl1_4_0"; "PurchaseOrder"="lvl1_6_0" }
+        description = "Static structural class model specifying Abstract Base Classes, Concrete Subclasses, Boundary/Interface Classes, Control Controllers, and Persistence Entities with attributes, visibility, operations, multiplicities, composition, and inheritance (BUCT Ch. 8)."
+    },
+    @{ 
+        id = "sequence_diagram"
+        file = "diagrams/Sequence_Diagram.svg"
+        level = "uml"
+        badge = "Sequence (Operations)"
+        title = "UML Sequence Diagram: Field Activity Logging & Automated Inventory Depletion (Process 3.0)"
+        parent = "lvl1_3_0"
+        children = @{ "3.1 Record Daily"="lvl2_3_1"; "3.2 Execute Automated"="lvl2_3_2"; "3.4 Validate Operational"="lvl2_3_4"; "4.1 Log Operational Expenses"="lvl2_4_1" }
+        description = "3-tier behavioral interaction (Presentation, Business, Persistence) demonstrating Farm Worker daily activity logging, Farm Manager validation, automated inventory deduction, and financial ledger expense generation."
+    },
+    @{ 
+        id = "sequence_diagram_procure"
+        file = "diagrams/Sequence_Diagram_Procurement.svg"
+        level = "uml"
+        badge = "Sequence (Procurement)"
+        title = "UML Sequence Diagram: Dynamic Reorder Point Alert & PO Fulfillment (Process 5.4 & 6.0)"
+        parent = "lvl1_6_0"
+        children = @{ "2.2 Reconcile Stock"="lvl2_2_2"; "5.4 Monitor Stock Thresholds"="lvl2_5_4"; "6.2 Manage Purchase Orders"="lvl2_6_2" }
+        description = "3-tier behavioral sequence depicting dynamic threshold alerting, automated purchase order dispatch, supplier fulfillment delivery, and receiving slip reconciliation against inventory."
     }
 )
 
@@ -360,14 +390,14 @@ Write-Output "Processing $($diagramDefs.Count) diagram definitions..."
 $sb = New-Object System.Text.StringBuilder
 [void]$sb.AppendLine("/**")
 [void]$sb.AppendLine(" * Farm Inventory & Operations Manager - System Architecture, DFD & UML Store")
-[void]$sb.AppendLine(" * 34 Standard Draw.io Diagrams with Multi-Level Drill-Down Navigation.")
+[void]$sb.AppendLine(" * Full Draw.io Diagrams with Multi-Level Drill-Down Navigation.")
 [void]$sb.AppendLine(" *")
 [void]$sb.AppendLine(" * Levels:")
 [void]$sb.AppendLine(" * - overview: Work Breakdown Structure (WBS) & Context Level DFD (Diagram 0.0)")
 [void]$sb.AppendLine(" * - 0: DFD Level 0 (Diagram 0 - 10 Core Functional Processes)")
 [void]$sb.AppendLine(" * - 1: DFD Level 1 (Processes 1.0 through 6.0)")
 [void]$sb.AppendLine(" * - 2: DFD Level 2 (Sub-processes 1.1-1.3, 2.1-2.6, 3.1-3.4, 4.1-4.4, 5.1-5.4, 6.1-6.2)")
-[void]$sb.AppendLine(" * - uml: UML Activity Diagram and UML Use Case Diagram")
+[void]$sb.AppendLine(" * - uml: UML Models (Class Diagram, Sequence Diagrams, Activity Workflow, Use Case Diagram)")
 [void]$sb.AppendLine(" */")
 [void]$sb.AppendLine("")
 [void]$sb.AppendLine("const DIAGRAMS_DATA = [")
@@ -407,14 +437,13 @@ for ($i = 0; $i -lt $diagramDefs.Count; $i++) {
     } else {
         [void]$sb.AppendLine("")
     }
-    Write-Output "Serialized [$($i+1)/34]: $($d.id) ($($d.file)) - SVG size: $($svgRaw.Length) bytes"
+    Write-Output "Serialized [$($i+1)/$($diagramDefs.Count)]: $($d.id) ($($d.file)) - SVG size: $($svgRaw.Length) bytes"
 }
 
 [void]$sb.AppendLine("];")
 [void]$sb.AppendLine("")
 [void]$sb.AppendLine("function getDiagramById(id) {")
 [void]$sb.AppendLine("  if (!id) return null;")
-[void]$sb.AppendLine("  if (id === 'sequence_diagram') id = 'use_case_diagram';")
 [void]$sb.AppendLine("  return DIAGRAMS_DATA.find(d => d.id === id) || null;")
 [void]$sb.AppendLine("}")
 [void]$sb.AppendLine("")
