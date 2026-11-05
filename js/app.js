@@ -19,6 +19,7 @@ const I18N_TRANSLATIONS = {
     hero_desc: "A centralized, offline-first management platform for livestock, seeds, equipment, field operations, and automated financial accounting across diverse agricultural scales.",
     hero_btn_diagrams: "Explore System Diagrams",
     hero_btn_wbs: "Inspect WBS Hierarchy",
+    hero_btn_prototypes: "Go to Prototypes",
 
     stat_categories: "Inventory Scope",
     stat_categories_val: "Seeds, Tools, Livestock, Fertilizers",
@@ -120,6 +121,7 @@ const I18N_TRANSLATIONS = {
     hero_desc: "面向牲畜、种子、农具、田间作业及自动化财务核算的集中式离线优先管理平台，适配不同规模农业生产组织。",
     hero_btn_diagrams: "浏览系统图表",
     hero_btn_wbs: "查看 WBS 工作分解结构",
+    hero_btn_prototypes: "进入原型系统",
 
     stat_categories: "管理品类",
     stat_categories_val: "种子、工具、牲畜、化肥",

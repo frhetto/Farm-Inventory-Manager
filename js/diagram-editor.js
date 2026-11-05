@@ -37,8 +37,12 @@ class DiagramStudio {
   initLevelFilterTabs() {
     const tabs = document.querySelectorAll(".level-filter-tab");
     tabs.forEach(tab => {
+      const level = tab.getAttribute("data-level");
+      const badge = tab.querySelector("span:last-child");
+      if (badge && window.getDiagramsByLevel) {
+        badge.textContent = window.getDiagramsByLevel(level).length;
+      }
       tab.addEventListener("click", () => {
-        const level = tab.getAttribute("data-level");
         this.setLevelFilter(level);
       });
     });

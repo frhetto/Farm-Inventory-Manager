@@ -1,0 +1,75 @@
+# ==============================================================================
+# Git Ignore Rules - Farm Inventory & Operations Management System
+# Clean repository profile for academic submission (BUCT Systems Analysis & Design)
+# ==============================================================================
+
+# --- Python Scripts & Generator Tools ---
+*.py
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# --- Virtual Environments ---
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# --- Automation & PowerShell Helper Scripts ---
+*.ps1
+*.sh
+*.bat
+*.cmd
+
+# --- Intermediate Data, Extraction & Dump Files ---
+*.json
+wbs_decompressed.xml
+wbs_extracted.xml
+
+# --- Temporary Image Renders, Crops & Verification Captures ---
+slide*.png
+test_*.png
+test_*.svg
+verify_*.png
+tight_*.png
+crop_*.png
+way*.png
+*_crop.png
+*_full.png
+
+# --- Microsoft Office Temporary & Lock Files ---
+~$*
+*.tmp
+*_Updated.docx
+*_Updated.pptx
+
+# --- OS & Editor Metadata ---
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.log
+

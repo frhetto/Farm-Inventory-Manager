@@ -23,6 +23,26 @@ $diagramDefs = @(
         description = "Context diagram (Diagram 0.0) depicting system boundary, external entities (Farm Worker, Farm Manager, Supplier, Customer, Agronomic API), and primary input/output data flows."
     },
     @{ 
+        id = "erd"
+        file = "diagrams/ERD.drawio.svg"
+        level = "overview"
+        badge = "Entity-Relationship (ERD)"
+        title = "Entity-Relationship Diagram: Conceptual & Logical Data Architecture"
+        parent = "dfd_lvl0"
+        children = @{ "2.0 Inventory"="lvl1_2_0"; "3.0 Field Operations"="lvl1_3_0"; "4.0 Financial Ledger"="lvl1_4_0"; "6.0 Procurement"="lvl1_6_0" }
+        description = "Conceptual and logical Entity-Relationship Diagram conforming to BUCT Chapter 2 (Slides 20-24) using Crow's Foot notation (||, |<, o|, o<), Fundamental, Associative, and Attributive entity stereotypes, and full relational mappings for 17 core domain entities."
+    },
+    @{ 
+        id = "db_diagram"
+        file = "diagrams/Database_Diagram.drawio.svg"
+        level = "overview"
+        badge = "Database Schema"
+        title = "Relational Database Schema Diagram (Physical Architecture)"
+        parent = "erd"
+        children = @{ "2.0 Inventory"="lvl1_2_0"; "3.0 Field Operations"="lvl1_3_0"; "4.0 Financial Ledger"="lvl1_4_0"; "6.0 Procurement"="lvl1_6_0" }
+        description = "Physical relational database architecture modeled in MS SQL / Luna Modeler notation specifying 3NF physical tables, column data types, PK/FK referential integrity constraints, nullability flags, and indices across all 17 system entities."
+    },
+    @{ 
         id = "dfd_lvl0"
         file = "diagrams/lvl0.drawio.svg"
         level = "0"
@@ -345,13 +365,93 @@ $diagramDefs = @(
     },
     @{ 
         id = "use_case_diagram"
-        file = "diagrams/Use_Case_Diagram.svg"
+        file = "diagrams/Use_Case_Level_0.svg"
         level = "uml"
-        badge = "Use Case Diagram"
-        title = "UML Use Case Diagram: Actors & System Boundaries"
+        badge = "Use Case Level 0"
+        title = "UML Use Case Diagram: Level 0 (System Boundary & Core DFD Processes)"
         parent = "context_dfd"
-        children = @{ "2.0 Administer Inventory"="lvl1_2_0"; "2.2 Reconcile Stock"="lvl2_2_2"; "2.3 Authorize & Audit"="lvl2_2_3"; "3.1 Record Daily"="lvl2_3_1"; "3.4 Validate Operational"="lvl2_3_4"; "4.0 Track Finances"="lvl1_4_0"; "5.0 Deliver Reports"="lvl1_5_0"; "6.0 Manage Suppliers"="lvl1_6_0" }
-        description = "Use case diagram depicting primary actors (Farm Worker, Farm Manager, Farm Owner, Supplier, Customer) interacting with core functional subsystems across system boundaries."
+        children = @{ "1.0 Govern User"="lvl1_1_0"; "2.0 Administer Inventory"="lvl1_2_0"; "3.0 Coordinate Field"="lvl1_3_0"; "4.0 Track Finances"="lvl1_4_0"; "5.0 Deliver Reports"="lvl1_5_0"; "6.0 Manage Suppliers"="lvl1_6_0"; "7.0 Maintain Machinery"="lvl1_3_0"; "8.0 Direct Field"="lvl1_3_0"; "9.0 Synchronize Offline"="lvl1_2_0"; "10.0 Integrate External"="lvl1_5_0" }
+        description = "Top-level enterprise system boundary depicting primary stakeholder actors (Farm Worker, Farm Manager, Farm Owner, Supplier, Customer) interacting with 10 core DFD functional processes."
+    },
+    @{ 
+        id = "use_case_lvl1"
+        file = "diagrams/Use_Case_Level_1.svg"
+        level = "uml"
+        badge = "Use Case Level 1"
+        title = "UML Use Case Diagram: Level 1 (Sub-Process Functional Decomposition)"
+        parent = "use_case_diagram"
+        children = @{ "1.1 Register & Provision"="lvl2_1_1"; "1.2 Administer RBAC"="lvl2_1_2"; "1.3 Manage User"="lvl2_1_3"; "2.1 Configure Inventory"="lvl2_2_1"; "2.2 Reconcile Stock"="lvl2_2_2"; "2.3 Authorize Purging"="lvl2_2_3"; "2.4 Track Movement"="lvl2_2_4"; "2.5 Establish Locations"="lvl2_2_5"; "2.6 Inter-Location Transfers"="lvl2_2_6"; "3.1 Record Daily"="lvl2_3_1"; "3.2 Execute Material Depletion"="lvl2_3_2"; "3.3 Administer Care Cycles"="lvl2_3_3"; "3.4 Validate Operational"="lvl2_3_4"; "4.1 Log Expenses"="lvl2_4_1"; "4.2 Record Revenue"="lvl2_4_2"; "4.3 Maintain Financial Ledger"="lvl2_4_3"; "4.4 Analyze Margins"="lvl2_4_4"; "5.1 Live Balances"="lvl2_5_1"; "5.2 Operational Reports"="lvl2_5_2"; "5.3 Executive Dashboards"="lvl2_5_3"; "5.4 Threshold Alerts"="lvl2_5_4"; "6.1 Supplier Directory"="lvl2_6_1"; "6.2 Manage PO Lifecycles"="lvl2_6_2" }
+        description = "Level 1 Use Case Functional Decomposition Model: Sub-processes 1.1-1.3, 2.1-2.6, 3.1-3.4, 4.1-4.4, 5.1-5.4, 6.1-6.2 with explicit <<include>> and <<extend>> linkages, plus standalone primitive processes 7.0, 8.0, 9.0, 10.0 strictly matching Level 0 DFD and WBS."
+    },
+    @{ 
+        id = "use_case_lvl2"
+        file = "diagrams/Use_Case_Level_2.svg"
+        level = "uml"
+        badge = "Use Case Level 2"
+        title = "UML Use Case Diagram: Level 2 (Primitive Functional Decomposition - Processes 1.0 to 6.0)"
+        parent = "use_case_lvl1"
+        children = @{ "Subsystem 1.0 (Governance)"="use_case_lvl2_sub1"; "Subsystem 2.0 (Inventory)"="use_case_lvl2_sub2"; "Subsystem 3.0 (Operations)"="use_case_lvl2_sub3"; "Subsystem 4.0 (Financials)"="use_case_lvl2_sub4"; "Subsystem 5.0 (Reporting)"="use_case_lvl2_sub5"; "Subsystem 6.0 (Procurement)"="use_case_lvl2_sub6" }
+        description = "Comprehensive Level 2 Use Case Model decomposing all 23 sub-processes across 6 core subsystems into their primitive operations, strictly aligned with WBS Level 3 and Level 2 DFDs."
+    },
+    @{ 
+        id = "use_case_lvl2_sub1"
+        file = "diagrams/Use_Case_Level_2_Subsystem_1.svg"
+        level = "uml"
+        badge = "Use Case L2: Sub 1"
+        title = "UML Use Case Diagram: Level 2 - Subsystem 1.0 (User & Role Governance)"
+        parent = "use_case_lvl2"
+        children = @{ "1.1 Provision Accounts"="lvl2_1_1"; "1.2 Administer RBAC"="lvl2_1_2"; "1.3 User Profiles"="lvl2_1_3" }
+        description = "Level 2 primitive functional decomposition for Subsystem 1.0 (Processes 1.1 to 1.3): Account provisioning, RBAC matrix, and session auditing with Farm Manager and Farm Worker actors."
+    },
+    @{ 
+        id = "use_case_lvl2_sub2"
+        file = "diagrams/Use_Case_Level_2_Subsystem_2.svg"
+        level = "uml"
+        badge = "Use Case L2: Sub 2"
+        title = "UML Use Case Diagram: Level 2 - Subsystem 2.0 (Inventory & Stock Management - Exact DFD Blueprint)"
+        parent = "use_case_lvl2"
+        children = @{ "2.1 Inventory Categories"="lvl2_2_1"; "2.2 Reconcile Stock"="lvl2_2_2"; "2.3 Record Purging"="lvl2_2_3"; "2.4 Lot Movement"="lvl2_2_4"; "2.5 Location Hierarchies"="lvl2_2_5"; "2.6 Inter-Location Transfers"="lvl2_2_6" }
+        description = "Level 2 primitive functional decomposition for Subsystem 2.0: Supplier -> 2.2.1, Customer -> 2.2.2, 2.2.1/2.2.2 extend 2.2.3, 2.2.3 includes 4.0, plus 2.1, 2.3, 2.4, 2.5, and 2.6 with duplicated actors to eliminate cross-line clustering."
+    },
+    @{ 
+        id = "use_case_lvl2_sub3"
+        file = "diagrams/Use_Case_Level_2_Subsystem_3.svg"
+        level = "uml"
+        badge = "Use Case L2: Sub 3"
+        title = "UML Use Case Diagram: Level 2 - Subsystem 3.0 (Field Operations Management)"
+        parent = "use_case_lvl2"
+        children = @{ "3.1 Daily Activity Logging"="lvl2_3_1"; "3.2 Material Depletion"="lvl2_3_2"; "3.3 Crop Care Cycles"="lvl2_3_3"; "3.4 Validation Workflow"="lvl2_3_4" }
+        description = "Level 2 primitive functional decomposition for Subsystem 3.0: Daily activity submission (Worker -> 3.1.1), automated inventory depletion (3.1 -> <<include>> 3.2.1), Manager review/approval (Manager -> 3.4.1/3.4.2), and care cycle scheduling."
+    },
+    @{ 
+        id = "use_case_lvl2_sub4"
+        file = "diagrams/Use_Case_Level_2_Subsystem_4.svg"
+        level = "uml"
+        badge = "Use Case L2: Sub 4"
+        title = "UML Use Case Diagram: Level 2 - Subsystem 4.0 (Financial Accounting & Ledger)"
+        parent = "use_case_lvl2"
+        children = @{ "4.1 Capture Expenses"="lvl2_4_1"; "4.2 Record Revenue"="lvl2_4_2"; "4.3 General Ledger"="lvl2_4_3"; "4.4 Margins & Performance"="lvl2_4_4" }
+        description = "Level 2 primitive functional decomposition for Subsystem 4.0: Expense ledger posting (4.1), revenue settlement (4.2), automated journal balancing (4.3), and EBITDA margin analysis (4.4)."
+    },
+    @{ 
+        id = "use_case_lvl2_sub5"
+        file = "diagrams/Use_Case_Level_2_Subsystem_5.svg"
+        level = "uml"
+        badge = "Use Case L2: Sub 5"
+        title = "UML Use Case Diagram: Level 2 - Subsystem 5.0 (Reporting, Analytics & Threshold Alerts)"
+        parent = "use_case_lvl2"
+        children = @{ "5.1 Stock Valuation"="lvl2_5_1"; "5.2 Multi-Format Reports"="lvl2_5_2"; "5.3 Executive Dashboards"="lvl2_5_3"; "5.4 Threshold Warnings"="lvl2_5_4" }
+        description = "Level 2 primitive functional decomposition for Subsystem 5.0: Real-time inventory valuation (5.1), automated multi-format dispatch (5.2), executive KPI charts (5.3), and safety stock alerts triggering PO requisitions (5.4 -> <<extend>> 6.2.1)."
+    },
+    @{ 
+        id = "use_case_lvl2_sub6"
+        file = "diagrams/Use_Case_Level_2_Subsystem_6.svg"
+        level = "uml"
+        badge = "Use Case L2: Sub 6"
+        title = "UML Use Case Diagram: Level 2 - Subsystem 6.0 (Procurement & Supplier Management)"
+        parent = "use_case_lvl2"
+        children = @{ "6.1 Supplier Directory"="lvl2_6_1"; "6.2 Manage PO Lifecycles"="lvl2_6_2" }
+        description = "Level 2 primitive functional decomposition for Subsystem 6.0: Supplier qualification, automated PO dispatch, 3-way delivery reconciliation, and receiving slip confirmation."
     },
     @{ 
         id = "class_diagram"
@@ -382,6 +482,16 @@ $diagramDefs = @(
         parent = "lvl1_6_0"
         children = @{ "2.2 Reconcile Stock"="lvl2_2_2"; "5.4 Monitor Stock Thresholds"="lvl2_5_4"; "6.2 Manage Purchase Orders"="lvl2_6_2" }
         description = "3-tier behavioral sequence depicting dynamic threshold alerting, automated purchase order dispatch, supplier fulfillment delivery, and receiving slip reconciliation against inventory."
+    },
+    @{ 
+        id = "state_chart_diagram"
+        file = "diagrams/State_Chart_Diagram.drawio.svg"
+        level = "uml"
+        badge = "State Chart"
+        title = "UML Statechart Diagram: Field Operations & Procurement Lifecycles"
+        parent = "lvl1_3_0"
+        children = @{ "3.1 Record Daily"="lvl2_3_1"; "3.4 Validate Operational"="lvl2_3_4"; "6.2 Manage PO Lifecycles"="lvl2_6_2" }
+        description = "Discrete UML Statechart Diagram conforming to BUCT Chapter 8 (Slides 74-76) modeling discrete states, entry/do/exit actions, guard conditions [guard], triggers, choice pseudostates, and completion for FieldActivityLog and PurchaseOrder lifecycles."
     }
 )
 

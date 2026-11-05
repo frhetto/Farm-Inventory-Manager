@@ -135,6 +135,12 @@
             </svg>
             <span data-i18n="hero_btn_wbs">Inspect WBS Hierarchy</span>
           </a>
+          <a href="#interactive-sandbox" class="px-6 py-3 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-semibold text-sm border border-slate-300 dark:border-slate-700 transition-all flex items-center gap-2">
+            <svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            <span data-i18n="hero_btn_prototypes">Go to Prototypes</span>
+          </a>
         </div>
 
         <!-- Metric Badges Row -->
@@ -395,7 +401,7 @@
               DFD Mapping Matrix
             </button>
           </div>
-          <span class="text-xs text-slate-500 font-mono">10 Primary Functions • 30 Sub-Functions • 90 Primitive Functions</span>
+          <span class="text-xs text-slate-500 font-mono">10 Primary Processes (1.0 to 10.0) • Aligned with WBS Diagram</span>
         </div>
 
         <!-- VIEW 1: DETAILED 3-LEVEL FUNCTIONAL HIERARCHY TREE -->
@@ -736,10 +742,7 @@
                   <span class="font-mono font-bold text-sky-500">6.2</span> <span class="font-semibold text-slate-800 dark:text-slate-200">Manage Purchase Order (PO) Lifecycles</span>
                   <p class="text-[11px] text-slate-500 mt-0.5">6.2.1 Authorize & dispatch POs • 6.2.2 Track in-transit deliveries • 6.2.3 Three-way matching verification</p>
                 </div>
-                <div class="p-2.5 rounded-lg bg-slate-50 dark:bg-slate-800/40">
-                  <span class="font-mono font-bold text-sky-500">6.3</span> <span class="font-semibold text-slate-800 dark:text-slate-200">Conduct Supplier Benchmarking & Cost Analytics</span>
-                  <p class="text-[11px] text-slate-500 mt-0.5">6.3.1 Benchmark unit costs • 6.3.2 Evaluate discount schedules • 6.3.3 Recommend optimal procurement</p>
-                </div>
+                
               </div>
             </div>
 
@@ -748,23 +751,12 @@
               <div class="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
                 <div class="flex items-center gap-2">
                   <span class="px-2 py-0.5 font-mono font-bold text-xs rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">7.0</span>
-                  <h4 class="text-sm font-bold text-slate-900 dark:text-white">Fixed Asset & Machinery Maintenance</h4>
+                  <h4 class="text-sm font-bold text-slate-900 dark:text-white">Fixed Asset and Machinery Maintenance Management</h4>
                 </div>
                 <span class="text-[11px] font-mono text-slate-400">Store: D6 Asset Registry</span>
               </div>
-              <div class="mt-3 space-y-2 text-xs">
-                <div class="p-2.5 rounded-lg bg-slate-50 dark:bg-slate-800/40">
-                  <span class="font-mono font-bold text-sky-500">7.1</span> <span class="font-semibold text-slate-800 dark:text-slate-200">Schedule Routine Inspections & Maintenance</span>
-                  <p class="text-[11px] text-slate-500 mt-0.5">7.1.1 Track operating hours/meters • 7.1.2 Recurring service intervals • 7.1.3 Dispatch work orders</p>
-                </div>
-                <div class="p-2.5 rounded-lg bg-slate-50 dark:bg-slate-800/40">
-                  <span class="font-mono font-bold text-sky-500">7.2</span> <span class="font-semibold text-slate-800 dark:text-slate-200">Log Repair Histories, Expenditures & Conditions</span>
-                  <p class="text-[11px] text-slate-500 mt-0.5">7.2.1 Record detailed repair logs • 7.2.2 Track Total Cost of Ownership (TCO) • 7.2.3 Update asset status</p>
-                </div>
-                <div class="p-2.5 rounded-lg bg-slate-50 dark:bg-slate-800/40">
-                  <span class="font-mono font-bold text-sky-500">7.3</span> <span class="font-semibold text-slate-800 dark:text-slate-200">Monitor Service Windows & Warranty Expirations</span>
-                  <p class="text-[11px] text-slate-500 mt-0.5">7.3.1 Service deadline watchdog • 7.3.2 Warranty terms tracking • 7.3.3 Automated pre-expiration warnings</p>
-                </div>
+              <div class="mt-3 p-3 rounded-lg bg-slate-50 dark:bg-slate-800/40 text-xs text-slate-500 italic">
+                Terminal Functional Module (Defined as standalone module in WBS diagram).
               </div>
             </div>
 
@@ -773,23 +765,12 @@
               <div class="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
                 <div class="flex items-center gap-2">
                   <span class="px-2 py-0.5 font-mono font-bold text-xs rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">8.0</span>
-                  <h4 class="text-sm font-bold text-slate-900 dark:text-white">Field Task Allocation & Workload</h4>
+                  <h4 class="text-sm font-bold text-slate-900 dark:text-white">Field Task Allocation and Workload Management</h4>
                 </div>
                 <span class="text-[11px] font-mono text-slate-400">Store: D7 Tasks & Schedules</span>
               </div>
-              <div class="mt-3 space-y-2 text-xs">
-                <div class="p-2.5 rounded-lg bg-slate-50 dark:bg-slate-800/40">
-                  <span class="font-mono font-bold text-sky-500">8.1</span> <span class="font-semibold text-slate-800 dark:text-slate-200">Create, Schedule & Allocate Operational Tasks</span>
-                  <p class="text-[11px] text-slate-500 mt-0.5">8.1.1 Define task packages & priority • 8.1.2 Assign designated workers/crews • 8.1.3 Set completion windows</p>
-                </div>
-                <div class="p-2.5 rounded-lg bg-slate-50 dark:bg-slate-800/40">
-                  <span class="font-mono font-bold text-sky-500">8.2</span> <span class="font-semibold text-slate-800 dark:text-slate-200">Monitor Real-Time Task Execution States</span>
-                  <p class="text-[11px] text-slate-500 mt-0.5">8.2.1 Status transitions (Pending, In-Progress, Done) • 8.2.2 Log delays & bottlenecks • 8.2.3 Track duration</p>
-                </div>
-                <div class="p-2.5 rounded-lg bg-slate-50 dark:bg-slate-800/40">
-                  <span class="font-mono font-bold text-sky-500">8.3</span> <span class="font-semibold text-slate-800 dark:text-slate-200">Validate Deliverables & Supervisor Sign-Off</span>
-                  <p class="text-[11px] text-slate-500 mt-0.5">8.3.1 Field deliverable inspections • 8.3.2 Supervisor approval & revisions • 8.3.3 Close task orders</p>
-                </div>
+              <div class="mt-3 p-3 rounded-lg bg-slate-50 dark:bg-slate-800/40 text-xs text-slate-500 italic">
+                Terminal Functional Module (Defined as standalone module in WBS diagram).
               </div>
             </div>
 
@@ -798,23 +779,12 @@
               <div class="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
                 <div class="flex items-center gap-2">
                   <span class="px-2 py-0.5 font-mono font-bold text-xs rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">9.0</span>
-                  <h4 class="text-sm font-bold text-slate-900 dark:text-white">Offline Operation & Synchronization</h4>
+                  <h4 class="text-sm font-bold text-slate-900 dark:text-white">Offline Operation and Synchronization Management</h4>
                 </div>
                 <span class="text-[11px] font-mono text-slate-400">Store: D8 Offline Queue</span>
               </div>
-              <div class="mt-3 space-y-2 text-xs">
-                <div class="p-2.5 rounded-lg bg-slate-50 dark:bg-slate-800/40">
-                  <span class="font-mono font-bold text-sky-500">9.1</span> <span class="font-semibold text-slate-800 dark:text-slate-200">Maintain Client-Side Persistent Offline Queue</span>
-                  <p class="text-[11px] text-slate-500 mt-0.5">9.1.1 Intercept offline inputs • 9.1.2 IndexedDB monotonic timestamps • 9.1.3 Optimistic UI feedback</p>
-                </div>
-                <div class="p-2.5 rounded-lg bg-slate-50 dark:bg-slate-800/40">
-                  <span class="font-mono font-bold text-sky-500">9.2</span> <span class="font-semibold text-slate-800 dark:text-slate-200">Coordinate Background Batch Synchronization</span>
-                  <p class="text-[11px] text-slate-500 mt-0.5">9.2.1 Network restoration probing • 9.2.2 Signed batch generation • 9.2.3 Sequential FIFO transmission</p>
-                </div>
-                <div class="p-2.5 rounded-lg bg-slate-50 dark:bg-slate-800/40">
-                  <span class="font-mono font-bold text-sky-500">9.3</span> <span class="font-semibold text-slate-800 dark:text-slate-200">Arbitrate & Resolve Client-Server Data Conflicts</span>
-                  <p class="text-[11px] text-slate-500 mt-0.5">9.3.1 Concurrent clash detection via vector clocks • 9.3.2 Deterministic business rules • 9.3.3 Review queue</p>
-                </div>
+              <div class="mt-3 p-3 rounded-lg bg-slate-50 dark:bg-slate-800/40 text-xs text-slate-500 italic">
+                Terminal Functional Module (Defined as standalone module in WBS diagram).
               </div>
             </div>
 
@@ -823,23 +793,12 @@
               <div class="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
                 <div class="flex items-center gap-2">
                   <span class="px-2 py-0.5 font-mono font-bold text-xs rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">10.0</span>
-                  <h4 class="text-sm font-bold text-slate-900 dark:text-white">External Ecosystem & Integrations</h4>
+                  <h4 class="text-sm font-bold text-slate-900 dark:text-white">External Ecosystem and Inter-System Integration</h4>
                 </div>
-                <span class="text-[11px] font-mono text-slate-400">External REST Gateway</span>
+                <span class="text-[11px] font-mono text-slate-400">External Gateway</span>
               </div>
-              <div class="mt-3 space-y-2 text-xs">
-                <div class="p-2.5 rounded-lg bg-slate-50 dark:bg-slate-800/40">
-                  <span class="font-mono font-bold text-sky-500">10.1</span> <span class="font-semibold text-slate-800 dark:text-slate-200">Expose Secure RESTful API Gateway</span>
-                  <p class="text-[11px] text-slate-500 mt-0.5">10.1.1 OAuth2/JWT authenticated endpoints • 10.1.2 Rate limiting & encryption • 10.1.3 Webhook event feeds</p>
-                </div>
-                <div class="p-2.5 rounded-lg bg-slate-50 dark:bg-slate-800/40">
-                  <span class="font-mono font-bold text-sky-500">10.2</span> <span class="font-semibold text-slate-800 dark:text-slate-200">Ingest Environmental & Agronomic Feeds</span>
-                  <p class="text-[11px] text-slate-500 mt-0.5">10.2.1 Weather APIs • 10.2.2 Agronomy & pest warning feeds • 10.2.3 Regional commodity market benchmarks</p>
-                </div>
-                <div class="p-2.5 rounded-lg bg-slate-50 dark:bg-slate-800/40">
-                  <span class="font-mono font-bold text-sky-500">10.3</span> <span class="font-semibold text-slate-800 dark:text-slate-200">Interface with 3rd-Party Accounting & ERP</span>
-                  <p class="text-[11px] text-slate-500 mt-0.5">10.3.1 Format ledger for QuickBooks/Xero • 10.3.2 Sync movements with SAP/Odoo • 10.3.3 Data reconciliation</p>
-                </div>
+              <div class="mt-3 p-3 rounded-lg bg-slate-50 dark:bg-slate-800/40 text-xs text-slate-500 italic">
+                Terminal Functional Module (Defined as standalone module in WBS diagram).
               </div>
             </div>
 
@@ -853,83 +812,72 @@
             <table class="w-full text-left text-xs sm:text-sm border-collapse">
               <thead>
                 <tr class="bg-slate-100 dark:bg-slate-800/80 border-b border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-bold uppercase tracking-wider text-[11px]">
-                  <th class="py-3 px-4 w-24">Process ID</th>
-                  <th class="py-3 px-4 w-64">Primary Functional Module</th>
-                  <th class="py-3 px-4">Decomposed Sub-Functions (Level 2)</th>
-                  <th class="py-3 px-4 w-52">Persistent Data Store(s)</th>
-                  <th class="py-3 px-4 w-36 text-center">DFD Mapping Level</th>
+                  <th class="py-3 px-4 w-28">Process ID</th>
+                  <th class="py-3 px-4 w-72">Process Name</th>
+                  <th class="py-3 px-4">Subprocess</th>
+                  <th class="py-3 px-4">Subprocess</th>
                 </tr>
               </thead>
               <tbody class="divide-y divide-slate-200 dark:divide-slate-800 text-slate-600 dark:text-slate-400">
                 <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40">
-                  <td class="py-3 px-4 font-mono font-bold text-emerald-600 dark:text-emerald-400">1.0</td>
-                  <td class="py-3 px-4 font-semibold text-slate-900 dark:text-white">User and Role Governance Management</td>
-                  <td class="py-3 px-4">1.1 Register & Provision User Accounts • 1.2 Administer RBAC Permissions • 1.3 Manage User Profiles & Sessions</td>
-                  <td class="py-3 px-4 font-mono text-xs">D1: User Accounts & Roles</td>
-                  <td class="py-3 px-4 text-center"><span class="px-2 py-0.5 rounded text-[10px] bg-slate-200 dark:bg-slate-700 font-bold">DFD Level 0</span></td>
+                  <td class="py-3 px-4 font-mono font-bold text-emerald-600 dark:text-emerald-400 align-top">1.0</td>
+                  <td class="py-3 px-4 font-semibold text-slate-900 dark:text-white align-top">User and Role Governance Management</td>
+                  <td class="py-3 px-4 text-xs text-slate-700 dark:text-slate-300 align-top leading-relaxed">• 1.1 Register & Provision User Accounts<br/>• 1.2 Administer Role-Based Access Control (RBAC)<br/>• 1.3 Manage User Profiles & Authentication Sessions</td>
+                  <td class="py-3 px-4 text-xs text-slate-600 dark:text-slate-400 align-top leading-relaxed">• 1.1.1 Capture User Demographics & Agricultural Scale<br/>• 1.1.2 Verify Identity Credentials & Contact Details<br/>• 1.1.3 Provision Farm Workspace & Organizational Context<br/>• 1.2.1 Define Privilege Scopes<br/>• 1.2.2 Assign System Roles to User Accounts<br/>• 1.2.3 Enforce Method-Level Access Constraints<br/>• 1.3.1 Maintain Account Profiles & Locale Preferences<br/>• 1.3.2 Authenticate Credentials & Issue Secure Session Tokens<br/>• 1.3.3 Terminate Sessions & Rotate Security Credentials</td>
                 </tr>
                 <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40">
-                  <td class="py-3 px-4 font-mono font-bold text-emerald-600 dark:text-emerald-400">2.0</td>
-                  <td class="py-3 px-4 font-semibold text-slate-900 dark:text-white">Inventory and Multi-Location Stock Management</td>
-                  <td class="py-3 px-4">2.1 Configure Inventory Categorization • 2.2 Reconcile Stock Quantities • 2.3 Authorize Record Purging • 2.4 Track Stock Movements • 2.5 Establish Physical Location Hierarchies • 2.6 Execute Location Transfers</td>
-                  <td class="py-3 px-4 font-mono text-xs">D2: Inventory Ledger<br/>D4: Financial Ledger</td>
-                  <td class="py-3 px-4 text-center"><span class="px-2 py-0.5 rounded text-[10px] bg-emerald-500/20 text-emerald-500 font-bold">DFD Diagram 1 & 2.2</span></td>
+                  <td class="py-3 px-4 font-mono font-bold text-emerald-600 dark:text-emerald-400 align-top">2.0</td>
+                  <td class="py-3 px-4 font-semibold text-slate-900 dark:text-white align-top">Inventory and Multi-Location Stock Management</td>
+                  <td class="py-3 px-4 text-xs text-slate-700 dark:text-slate-300 align-top leading-relaxed">• 2.1 Configure Inventory Categorization & Standards<br/>• 2.2 Reconcile Stock Quantities via Transactions<br/>• 2.3 Authorize & Audit Record Purging<br/>• 2.4 Track Stock Movement & Batch Lot Histories<br/>• 2.5 Establish Physical Location Hierarchies<br/>• 2.6 Execute Inter-Location Stock Transfers</td>
+                  <td class="py-3 px-4 text-xs text-slate-600 dark:text-slate-400 align-top leading-relaxed">• 2.1.1 Maintain Master Categories<br/>• 2.1.2 Configure Units of Measurement & Packaging<br/>• 2.1.3 Define Quality Grades & Storage Rules<br/>• 2.2.1 Process Inbound Receipts & Inward Restock Batches<br/>• 2.2.2 Process Outbound Sales Deductions & Allocations<br/>• 2.2.3 Trigger Automated Linked Financial Ledger Postings<br/>• 2.3.1 Submit Record Deletion Requests with Justification<br/>• 2.3.2 Validate Multi-Factor Administrator Authorization<br/>• 2.3.3 Archive Redundant Records to Immutable Historical Log<br/>• 2.4.1 Assign Deterministic Unique Lot Numbers & Barcodes<br/>• 2.4.2 Trace Batch Depletion, Spoilage & Life Cycles<br/>• 2.4.3 Generate End-to-End Stock Movement Audit Trails<br/>• 2.5.1 Define Parent Facilities<br/>• 2.5.2 Subdivide Holdings into Sub-Locations<br/>• 2.5.3 Monitor Capacity Limits & Storage Conditions<br/>• 2.6.1 Generate Transfer Orders with Specifications<br/>• 2.6.2 Verify Transit Chain-of-Custody & Dispatch Handover<br/>• 2.6.3 Reconcile Destination Received Quantities</td>
                 </tr>
                 <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40">
-                  <td class="py-3 px-4 font-mono font-bold text-emerald-600 dark:text-emerald-400">3.0</td>
-                  <td class="py-3 px-4 font-semibold text-slate-900 dark:text-white">Agricultural Field Operations Management</td>
-                  <td class="py-3 px-4">3.1 Record Daily Field Activities • 3.2 Execute Automated Material Depletion • 3.3 Administer Care Cycles & Schedules • 3.4 Validate Operational Submissions</td>
-                  <td class="py-3 px-4 font-mono text-xs">D2: Inventory Ledger<br/>D3: Operations Logs</td>
-                  <td class="py-3 px-4 text-center"><span class="px-2 py-0.5 rounded text-[10px] bg-emerald-500/20 text-emerald-500 font-bold">DFD Diagram 2</span></td>
+                  <td class="py-3 px-4 font-mono font-bold text-emerald-600 dark:text-emerald-400 align-top">3.0</td>
+                  <td class="py-3 px-4 font-semibold text-slate-900 dark:text-white align-top">Agricultural Field Operations Management</td>
+                  <td class="py-3 px-4 text-xs text-slate-700 dark:text-slate-300 align-top leading-relaxed">• 3.1 Record Daily Field & Animal Activities<br/>• 3.2 Execute Automated Material Depletion<br/>• 3.3 Administer Care Cycles & Preventive Schedules<br/>• 3.4 Validate Operational Submissions</td>
+                  <td class="py-3 px-4 text-xs text-slate-600 dark:text-slate-400 align-top leading-relaxed">• 3.1.1 Log Livestock Husbandry Operations<br/>• 3.1.2 Log Crop Agronomic Activities<br/>• 3.1.3 Capture Field Condition Metrics & Equipment Used<br/>• 3.2.1 Calculate Required Inventory Consumables<br/>• 3.2.2 Verify Stock Availability & Reserve Quantities<br/>• 3.2.3 Post Automated Stock Deductions to Physical Ledger<br/>• 3.3.1 Schedule Livestock Health Protocols<br/>• 3.3.2 Schedule Agronomic Cultivation & Fallow Rotations<br/>• 3.3.3 Generate Operational Calendar Alerts & Duty Rosters<br/>• 3.4.1 Review Worker Activity Drafts Against Standards<br/>• 3.4.2 Authorize Approved Submissions for Ledger Posting<br/>• 3.4.3 Return Rejected Submissions with Correction Notices</td>
                 </tr>
                 <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40">
-                  <td class="py-3 px-4 font-mono font-bold text-emerald-600 dark:text-emerald-400">4.0</td>
-                  <td class="py-3 px-4 font-semibold text-slate-900 dark:text-white">Financial Accounting and Expense Management</td>
-                  <td class="py-3 px-4">4.1 Capture Sectional Expenses • 4.2 Record Revenue & Inward Sales • 4.3 Standardize Chart of Accounts • 4.4 Compute Financial Performance & Margins</td>
-                  <td class="py-3 px-4 font-mono text-xs">D4: Financial Ledger & Cashflow</td>
-                  <td class="py-3 px-4 text-center"><span class="px-2 py-0.5 rounded text-[10px] bg-emerald-500/20 text-emerald-500 font-bold">DFD Diagram 3</span></td>
+                  <td class="py-3 px-4 font-mono font-bold text-emerald-600 dark:text-emerald-400 align-top">4.0</td>
+                  <td class="py-3 px-4 font-semibold text-slate-900 dark:text-white align-top">Financial Accounting and Expense Management</td>
+                  <td class="py-3 px-4 text-xs text-slate-700 dark:text-slate-300 align-top leading-relaxed">• 4.1 Capture Sectional Operational Expenses<br/>• 4.2 Record Revenue & Inward Sales Transactions<br/>• 4.3 Standardize Account Categorization & Ledger Accounts<br/>• 4.4 Compute Financial Performance & Margin Analytics</td>
+                  <td class="py-3 px-4 text-xs text-slate-600 dark:text-slate-400 align-top leading-relaxed">• 4.1.1 Log Equipment Repair & Maintenance Invoices<br/>• 4.1.2 Record Consumable Purchasing Invoices<br/>• 4.1.3 Log Labor Wages & Logistics Costs<br/>• 4.2.1 Record Bulk Harvest Offtake Sales & Commercial Invoices<br/>• 4.2.2 Capture Direct-to-Consumer Market Sales & Cash Receipts<br/>• 4.2.3 Track Customer Receivables & Settlement Schedules<br/>• 4.3.1 Classify Entries by Cost Center<br/>• 4.3.2 Reconcile Double-Entry Debit & Credit Allocations<br/>• 4.3.3 Maintain Audit Logs for Tax & ERP Compliance<br/>• 4.4.1 Calculate Cost of Goods Produced<br/>• 4.4.2 Compute Gross Operational Margins & Net Profit Margins<br/>• 4.4.3 Perform Budget vs. Actual Variance Analysis</td>
                 </tr>
                 <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40">
-                  <td class="py-3 px-4 font-mono font-bold text-emerald-600 dark:text-emerald-400">5.0</td>
-                  <td class="py-3 px-4 font-semibold text-slate-900 dark:text-white">Reporting, Analytics & Visualization</td>
-                  <td class="py-3 px-4">5.1 Compile Stock Summaries & Valuation • 5.2 Generate & Dispatch Multi-Format Reports • 5.3 Render Role-Differentiated Dashboards • 5.4 Monitor Stock Thresholds & Warnings</td>
-                  <td class="py-3 px-4 font-mono text-xs">D2: Inventory Ledger<br/>D4: Financial Ledger</td>
-                  <td class="py-3 px-4 text-center"><span class="px-2 py-0.5 rounded text-[10px] bg-slate-200 dark:bg-slate-700 font-bold">DFD Level 0</span></td>
+                  <td class="py-3 px-4 font-mono font-bold text-emerald-600 dark:text-emerald-400 align-top">5.0</td>
+                  <td class="py-3 px-4 font-semibold text-slate-900 dark:text-white align-top">Reporting, Analytics and Visualization Management</td>
+                  <td class="py-3 px-4 text-xs text-slate-700 dark:text-slate-300 align-top leading-relaxed">• 5.1 Compile Inventory Balances & Stock Valuation<br/>• 5.2 Generate & Dispatch Multi-Format Business Reports<br/>• 5.3 Render Role-Differentiated Visual Dashboards<br/>• 5.4 Monitor Stock Thresholds & Dispatch Early Warnings</td>
+                  <td class="py-3 px-4 text-xs text-slate-600 dark:text-slate-400 align-top leading-relaxed">• 5.1.1 Aggregate Stock Counts by Category<br/>• 5.1.2 Calculate Inventory Valuation<br/>• 5.1.3 Detect Stock Stagnation, Expiration & Shrinkage<br/>• 5.2.1 Render Formatted PDF Vector Documents<br/>• 5.2.2 Compile Structured XLSX Workbooks<br/>• 5.2.3 Export Tabular CSV Datasets<br/>• 5.3.1 Display Streamlined Task & Workload View<br/>• 5.3.2 Render Executive KPI Dashboard<br/>• 5.3.3 Provide Interactive Time-Series Charts<br/>• 5.4.1 Evaluate Dynamic Reorder Points<br/>• 5.4.2 Broadcast Visual UI Warning Badges<br/>• 5.4.3 Automatically Generate Replenishment Requisitions</td>
                 </tr>
                 <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40">
-                  <td class="py-3 px-4 font-mono font-bold text-emerald-600 dark:text-emerald-400">6.0</td>
-                  <td class="py-3 px-4 font-semibold text-slate-900 dark:text-white">Procurement & Supplier Relationship Management</td>
-                  <td class="py-3 px-4">6.1 Maintain Vendor Directory • 6.2 Manage Purchase Order Lifecycles • 6.3 Conduct Supplier Benchmarking & Cost Analytics</td>
-                  <td class="py-3 px-4 font-mono text-xs">D5: Supplier Directory & POs</td>
-                  <td class="py-3 px-4 text-center"><span class="px-2 py-0.5 rounded text-[10px] bg-slate-200 dark:bg-slate-700 font-bold">DFD Level 0</span></td>
+                  <td class="py-3 px-4 font-mono font-bold text-emerald-600 dark:text-emerald-400 align-top">6.0</td>
+                  <td class="py-3 px-4 font-semibold text-slate-900 dark:text-white align-top">Procurement and Supplier Relationship Management</td>
+                  <td class="py-3 px-4 text-xs text-slate-700 dark:text-slate-300 align-top leading-relaxed">• 6.1 Maintain Centralized Supplier & Vendor Directory<br/>• 6.2 Manage Purchase Order (PO) Lifecycles</td>
+                  <td class="py-3 px-4 text-xs text-slate-600 dark:text-slate-400 align-top leading-relaxed">• 6.1.1 Ingest Vendor Profiles<br/>• 6.1.2 Manage Supplier Catalogs & Agreed Price Lists<br/>• 6.1.3 Track Supplier Reliability & Quality Ratings<br/>• 6.2.1 Authorize & Dispatch Formal Purchase Orders<br/>• 6.2.2 Track In-Transit Deliveries & Partial Fulfillment States<br/>• 6.2.3 Perform Three-Way Matching</td>
                 </tr>
                 <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40">
-                  <td class="py-3 px-4 font-mono font-bold text-emerald-600 dark:text-emerald-400">7.0</td>
-                  <td class="py-3 px-4 font-semibold text-slate-900 dark:text-white">Fixed Asset & Machinery Maintenance Management</td>
-                  <td class="py-3 px-4">7.1 Schedule Routine Asset Maintenance • 7.2 Log Repair Histories & Costs • 7.3 Monitor Service Windows & Warranty Expirations</td>
-                  <td class="py-3 px-4 font-mono text-xs">D6: Asset & Equipment Registry</td>
-                  <td class="py-3 px-4 text-center"><span class="px-2 py-0.5 rounded text-[10px] bg-slate-200 dark:bg-slate-700 font-bold">DFD Level 0</span></td>
+                  <td class="py-3 px-4 font-mono font-bold text-emerald-600 dark:text-emerald-400 align-top">7.0</td>
+                  <td class="py-3 px-4 font-semibold text-slate-900 dark:text-white align-top">Fixed Asset and Machinery Maintenance Management</td>
+                  <td class="py-3 px-4 text-xs text-slate-700 dark:text-slate-300 align-top leading-relaxed">—</td>
+                  <td class="py-3 px-4 text-xs text-slate-600 dark:text-slate-400 align-top leading-relaxed">—</td>
                 </tr>
                 <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40">
-                  <td class="py-3 px-4 font-mono font-bold text-emerald-600 dark:text-emerald-400">8.0</td>
-                  <td class="py-3 px-4 font-semibold text-slate-900 dark:text-white">Field Task Allocation & Workload Management</td>
-                  <td class="py-3 px-4">8.1 Create, Schedule & Allocate Tasks • 8.2 Monitor Real-Time Task Execution States • 8.3 Validate Deliverables & Supervisor Sign-Off</td>
-                  <td class="py-3 px-4 font-mono text-xs">D7: Tasks & Schedules</td>
-                  <td class="py-3 px-4 text-center"><span class="px-2 py-0.5 rounded text-[10px] bg-slate-200 dark:bg-slate-700 font-bold">DFD Level 0</span></td>
+                  <td class="py-3 px-4 font-mono font-bold text-emerald-600 dark:text-emerald-400 align-top">8.0</td>
+                  <td class="py-3 px-4 font-semibold text-slate-900 dark:text-white align-top">Field Task Allocation and Workload Management</td>
+                  <td class="py-3 px-4 text-xs text-slate-700 dark:text-slate-300 align-top leading-relaxed">—</td>
+                  <td class="py-3 px-4 text-xs text-slate-600 dark:text-slate-400 align-top leading-relaxed">—</td>
                 </tr>
                 <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40">
-                  <td class="py-3 px-4 font-mono font-bold text-emerald-600 dark:text-emerald-400">9.0</td>
-                  <td class="py-3 px-4 font-semibold text-slate-900 dark:text-white">Offline Operation & Synchronization Management</td>
-                  <td class="py-3 px-4">9.1 Maintain Client-Side Persistent Offline Queue • 9.2 Coordinate Automatic Background Batch Sync • 9.3 Arbitrate & Resolve Data Conflicts</td>
-                  <td class="py-3 px-4 font-mono text-xs">D8: Offline Queue (Local DB)</td>
-                  <td class="py-3 px-4 text-center"><span class="px-2 py-0.5 rounded text-[10px] bg-slate-200 dark:bg-slate-700 font-bold">DFD Level 0</span></td>
+                  <td class="py-3 px-4 font-mono font-bold text-emerald-600 dark:text-emerald-400 align-top">9.0</td>
+                  <td class="py-3 px-4 font-semibold text-slate-900 dark:text-white align-top">Offline Operation and Synchronization Management</td>
+                  <td class="py-3 px-4 text-xs text-slate-700 dark:text-slate-300 align-top leading-relaxed">—</td>
+                  <td class="py-3 px-4 text-xs text-slate-600 dark:text-slate-400 align-top leading-relaxed">—</td>
                 </tr>
                 <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40">
-                  <td class="py-3 px-4 font-mono font-bold text-emerald-600 dark:text-emerald-400">10.0</td>
-                  <td class="py-3 px-4 font-semibold text-slate-900 dark:text-white">External Ecosystem & Inter-System Integration</td>
-                  <td class="py-3 px-4">10.1 Expose Secure RESTful API Gateway • 10.2 Ingest Environmental & Agronomic Feeds • 10.3 Interface with Third-Party Accounting & ERP</td>
-                  <td class="py-3 px-4 font-mono text-xs">External Gateway</td>
-                  <td class="py-3 px-4 text-center"><span class="px-2 py-0.5 rounded text-[10px] bg-slate-200 dark:bg-slate-700 font-bold">Context DFD</span></td>
+                  <td class="py-3 px-4 font-mono font-bold text-emerald-600 dark:text-emerald-400 align-top">10.0</td>
+                  <td class="py-3 px-4 font-semibold text-slate-900 dark:text-white align-top">External Ecosystem and Inter-System Integration</td>
+                  <td class="py-3 px-4 text-xs text-slate-700 dark:text-slate-300 align-top leading-relaxed">—</td>
+                  <td class="py-3 px-4 text-xs text-slate-600 dark:text-slate-400 align-top leading-relaxed">—</td>
                 </tr>
               </tbody>
             </table>
@@ -961,11 +909,11 @@
           <span class="text-xs font-bold text-slate-500 uppercase tracking-wider mr-1">Filter by Level:</span>
           <button data-level="all" class="level-filter-tab active px-3 py-1.5 rounded-lg text-xs font-semibold bg-emerald-700 text-white border border-emerald-700 shadow-sm flex items-center gap-1.5">
             <span>All Diagrams</span>
-            <span class="px-1.5 py-0.5 rounded-full bg-emerald-900/60 text-[10px]">37</span>
+            <span class="px-1.5 py-0.5 rounded-full bg-emerald-900/60 text-[10px]">48</span>
           </button>
           <button data-level="overview" class="level-filter-tab px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-700 hover:border-emerald-500 flex items-center gap-1.5">
-            <span>Overview & Context</span>
-            <span class="px-1.5 py-0.5 rounded-full bg-slate-200 dark:bg-slate-700 text-[10px]">2</span>
+            <span>Overview, ERD & Context</span>
+            <span class="px-1.5 py-0.5 rounded-full bg-slate-200 dark:bg-slate-700 text-[10px]">4</span>
           </button>
           <button data-level="0" class="level-filter-tab px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-700 hover:border-emerald-500 flex items-center gap-1.5">
             <span>Level 0</span>
@@ -980,8 +928,8 @@
             <span class="px-1.5 py-0.5 rounded-full bg-slate-200 dark:bg-slate-700 text-[10px]">23</span>
           </button>
           <button data-level="uml" class="level-filter-tab px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-700 hover:border-emerald-500 flex items-center gap-1.5">
-            <span>UML (Class, Sequence, Use Case, Activity)</span>
-            <span class="px-1.5 py-0.5 rounded-full bg-slate-200 dark:bg-slate-700 text-[10px]">5</span>
+            <span>UML (Class, Sequence, Use Case, Activity, State Chart)</span>
+            <span class="px-1.5 py-0.5 rounded-full bg-slate-200 dark:bg-slate-700 text-[10px]">14</span>
           </button>
         </div>
 
@@ -1533,8 +1481,6 @@
           </div>
         </div>
 
-      </div>
-    </section>
       </div>
     </section>
 
