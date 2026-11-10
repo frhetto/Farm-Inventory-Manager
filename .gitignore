@@ -5,7 +5,9 @@
 
 # --- Python Scripts & Generator Tools ---
 *.py
+**/*.py
 __pycache__/
+**/__pycache__/
 *.py[cod]
 *$py.class
 *.so
@@ -34,16 +36,23 @@ ENV/
 env.bak/
 venv.bak/
 
-# --- Automation & PowerShell Helper Scripts ---
+# --- Automation & Helper Scripts ---
 *.ps1
+**/*.ps1
 *.sh
+**/*.sh
 *.bat
+**/*.bat
 *.cmd
+**/*.cmd
 
 # --- Intermediate Data, Extraction & Dump Files ---
 *.json
 wbs_decompressed.xml
 wbs_extracted.xml
+
+# Preserve backend demo database
+!backend/inventory_db.json
 
 # --- Temporary Image Renders, Crops & Verification Captures ---
 slide*.png
@@ -67,9 +76,10 @@ way*.png
 Thumbs.db
 desktop.ini
 .vscode/
+**/.vscode/
 .idea/
+**/.idea/
 *.swp
 *.swo
 *~
 *.log
-
